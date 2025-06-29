@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GSAP Animation Library -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+<!-- Lottie Animation Player -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<style>
+  /* Smooth Input Focus Glow */
+  .search-section input:focus {
+    box-shadow: 0 0 10px #c10000;
+    transition: box-shadow 0.4s ease-in-out;
+  }
+
+  /* Button Click Scale */
+  .search-section button:active {
+    transform: scale(0.97);
+    transition: transform 0.1s;
+  }
+
+  /* Table Row Animation */
+  tr.animate-row {
+    animation: rowFade 0.6s ease forwards;
+  }
+
+  @keyframes rowFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart PriceCompare</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <script>
+  // GSAP Entrance Animations
+  window.addEventListener('DOMContentLoaded', () => {
+    gsap.from(".hero-text", { y: -100, opacity: 0, duration: 1.2, ease: "bounce.out" });
+    gsap.from(".search-section", { x: -200, opacity: 0, duration: 1, delay: 0.5 });
+    gsap.from(".results", { scale: 0.5, opacity: 0, duration: 1, delay: 1 });
+  });
+</script>
+
+
+  <!-- Hero Banner -->
+  <header class="hero">
+    <div class="hero-text animate-fade-in">
+      <h1>Smart PriceCompare</h1>
+      <p>Compare products across top shopping platforms in style</p>
+    </div>
+  </header>
+
+  <div style="text-align: center; margin: 20px auto;">
+  <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_kq5rGs.json"
+    background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
+  </lottie-player>
+</div>
+
+  <main class="main-section">
+    <section class="search-section animate-slide-up">
+      <input type="text" id="productInput" placeholder="Enter product name..." />
+      <button onclick="comparePrices()">Compare 🔍</button>
+    </section>
+
+    <section class="results animate-fade-in">
+      <h2 id="productTitle">Search a product to compare prices</h2>
+      <table id="price-table">
+        <thead>
+          <tr>
+            <th>Shopping Site</th>
+            <th>Price (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Results go here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- ✅ Clean footer with credits -->
+  <footer>
+    <p>© 2025 Smart PriceCompare. All rights reserved.</p>
+    <p>
+      Project by Shiv Yadav (0905CS231252), Varun Singh (0905CS231295),
+      Utkarsh Kaushik (0905CS231286), Varun Bhagia (0905CS231294),
+      Tanish Shukla (0905CS231276)
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
